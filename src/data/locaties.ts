@@ -82,7 +82,7 @@ export const locaties: Locatie[] = [
     intro: 'Huisleegmakers is uw vertrouwde partner voor woningontruiming in Sint-Amandsberg. Wij begrijpen dat een ontruiming emotioneel en praktisch zwaar kan zijn. Daarom nemen wij alles uit handen — van het eerste contact tot de bezemschone oplevering.',
     metaTitle: 'Woningontruiming Sint-Amandsberg | Huisleegmakers Gent',
     metaDescription: 'Ontruiming in Sint-Amandsberg? Huisleegmakers: respectvol, snel en bezemschoon. Gratis bezichtiging, geen verborgen kosten. Bel 0478 22 56 33.',
-    heroAlt: 'Sint-Amandsberg Gent - woningontruiming door Huisleegmakers',
+    heroAlt: 'Gemeentehuis Sint-Amandsberg Gent - woningontruiming door Huisleegmakers',
   },
   {
     slug: 'drongen',
