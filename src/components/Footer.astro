@@ -42,8 +42,8 @@ import { locaties } from '../data/locaties';
 
       <div>
         <h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">Regio's</h3>
-        <ul class="space-y-2.5 text-sm text-gray-400">
-          {locaties.slice(0, 6).map((loc) => (
+        <ul class="space-y-2.5 text-sm text-gray-400 columns-2 gap-x-6">
+          {locaties.map((loc) => (
             <li><a href={`/woningontruiming-${loc.slug}`} class="hover:text-white transition-colors">{loc.naam}</a></li>
           ))}
         </ul>

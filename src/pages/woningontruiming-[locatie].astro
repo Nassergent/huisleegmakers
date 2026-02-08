@@ -34,7 +34,7 @@ const faqs = [
   { vraag: 'Leveren jullie altijd bezemschoon op?', antwoord: 'Ja, wij leveren elke ontruiming 100% bezemschoon op. Dat is onze garantie, ook in ' + loc.naam + '.' },
 ];
 
-const andereLocaties = locaties.filter(l => l.slug !== loc.slug).slice(0, 6);
+const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
 ---
 
 <Layout
@@ -375,7 +375,7 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug).slice(0, 6);
           <p class="text-gray-500 max-w-xl mx-auto">Wij bedienen heel Gent en omstreken. Bekijk onze andere locaties.</p>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {andereLocaties.map((l) => (
             <a href={`/woningontruiming-${l.slug}`} class="bg-gray-50 hover:bg-brand-50 rounded-xl p-4 text-center border border-gray-100 hover:border-brand-200 transition-all group">
               <p class="font-semibold text-gray-900 group-hover:text-brand-600 text-sm transition-colors">{l.naam}</p>
