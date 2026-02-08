@@ -70,7 +70,7 @@ export const locaties: Locatie[] = [
     intro: 'Op zoek naar een ontruimingsbedrijf in Gentbrugge? Huisleegmakers combineert snelheid met respect. Of u nu een erfenis moet afhandelen of een huurpand wilt leegruimen — wij zorgen ervoor dat alles bezemschoon wordt opgeleverd.',
     metaTitle: 'Woningontruiming Gentbrugge | Huisleegmakers - Bezemschoon Gegarandeerd',
     metaDescription: 'Woningontruiming nodig in Gentbrugge? Huisleegmakers: gratis bezichtiging, offerte binnen 24u, 100% bezemschoon opgeleverd. Bel 0478 22 56 33.',
-    heroAlt: 'Gentbrugge Gent - woningontruiming door Huisleegmakers',
+    heroAlt: 'Dienstencentrum Gentbrugge - woningontruiming door Huisleegmakers',
   },
   {
     slug: 'sint-amandsberg',
