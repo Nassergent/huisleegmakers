@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // CSRF: check Origin/Referer header
     const origin = request.headers.get('origin') || request.headers.get('referer') || '';
-    const allowedOrigins = ['https://huisleegmakers.gent', 'https://huisleegmakers-kohl.vercel.app', 'http://localhost:4321', 'http://localhost:4322'];
+    const allowedOrigins = ['https://huisleegmakers.gent', 'https://huisleegmakers2.vercel.app', 'https://huisleegmakers-kohl.vercel.app', 'http://localhost:4321', 'http://localhost:4322'];
     const isAllowed = allowedOrigins.some(o => origin.startsWith(o));
     if (!isAllowed) {
       return new Response(JSON.stringify({ error: 'Ongeldig verzoek.' }), { status: 403 });
