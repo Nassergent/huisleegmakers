@@ -43,15 +43,18 @@
         <!-- Rechter kolom: afbeelding -->
         <div class="relative hidden lg:block">
           <div class="rounded-2xl overflow-hidden bg-gray-200 shadow-lg">
-            <img
-              src="/images/hero-ontruiming.jpg"
-              alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
-              class="w-full h-auto object-cover"
-              width="1200"
-              height="971"
-              loading="eager"
-              fetchpriority="high"
-            />
+            <picture>
+              <source srcset="/images/hero-ontruiming.webp" type="image/webp" />
+              <img
+                src="/images/hero-ontruiming.jpg"
+                alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
+                class="w-full h-auto object-cover"
+                width="1200"
+                height="971"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
           <!-- Floating trust badge op afbeelding -->
           <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3.5 border border-gray-100 shadow-lg flex items-center gap-3">
@@ -67,14 +70,17 @@
 
         <!-- Mobiel: afbeelding onder CTAs -->
         <div class="lg:hidden rounded-xl overflow-hidden shadow-md -mx-1">
-          <img
-            src="/images/hero-ontruiming.jpg"
-            alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
-            class="w-full h-auto"
-            width="1200"
-            height="971"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="/images/hero-ontruiming.webp" type="image/webp" />
+            <img
+              src="/images/hero-ontruiming.jpg"
+              alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
+              class="w-full h-auto"
+              width="1200"
+              height="971"
+              loading="lazy"
+            />
+          </picture>
         </div>
       </div>
 
