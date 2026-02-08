@@ -11,6 +11,12 @@ import MobileCallBar from '../components/MobileCallBar.astro';
 import { locaties, getLocatie } from '../data/locaties';
 import type { Locatie } from '../data/locaties';
 
+export function getStaticPaths() {
+  return locaties.map((loc) => ({
+    params: { locatie: loc.slug },
+  }));
+}
+
 const { locatie: slug } = Astro.params;
 const loc = getLocatie(slug!);
 
@@ -41,17 +47,18 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
   title={loc.metaTitle}
   description={loc.metaDescription}
   canonical={`${siteUrl}/woningontruiming-${loc.slug}`}
+  keywords={`woningontruiming ${loc.naam}, ontruiming ${loc.naam}, bezemschoon ${loc.naam}, ontruiming na overlijden ${loc.naam}, spoedontruiming ${loc.naam}`}
 >
   <Header />
-  <main>
+  <main id="main">
     <!-- Breadcrumbs -->
     <div class="pt-14 md:pt-16 bg-white border-b border-gray-100">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <nav aria-label="Breadcrumb" class="text-sm text-gray-400">
           <ol class="flex items-center gap-1.5 flex-wrap">
             <li><a href="/" class="hover:text-brand-600 transition-colors">Home</a></li>
-            <li><svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></li>
-            <li class="text-gray-700 font-medium">Woningontruiming {loc.naam}</li>
+            <li aria-hidden="true"><svg class="w-3.5 h-3.5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></li>
+            <li class="text-gray-700 font-medium" aria-current="page">Woningontruiming {loc.naam}</li>
           </ol>
         </nav>
       </div>
@@ -97,6 +104,8 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
                 src={`/images/locaties/${loc.slug}.jpg`}
                 alt={loc.heroAlt}
                 class="w-full h-auto object-cover"
+                width="1200"
+                height="800"
                 loading="eager"
               />
             </div>
@@ -118,7 +127,9 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
               src={`/images/locaties/${loc.slug}.jpg`}
               alt={loc.heroAlt}
               class="w-full h-auto"
-              loading="eager"
+              width="1200"
+              height="800"
+              loading="lazy"
             />
           </div>
         </div>
@@ -321,12 +332,12 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label for="naam" class="block text-sm font-medium text-gray-700 mb-1.5">Naam *</label>
-                  <input type="text" id="naam" name="naam" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw naam" />
+                  <label for="naam" class="block text-sm font-medium text-gray-700 mb-1.5">Naam <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+                  <input type="text" id="naam" name="naam" required aria-required="true" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw naam" />
                 </div>
                 <div>
-                  <label for="telefoon" class="block text-sm font-medium text-gray-700 mb-1.5">Telefoon *</label>
-                  <input type="tel" id="telefoon" name="telefoon" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw telefoonnummer" />
+                  <label for="telefoon" class="block text-sm font-medium text-gray-700 mb-1.5">Telefoon <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+                  <input type="tel" id="telefoon" name="telefoon" required aria-required="true" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw telefoonnummer" />
                 </div>
               </div>
 
@@ -336,8 +347,8 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
               </div>
 
               <div>
-                <label for="type" class="block text-sm font-medium text-gray-700 mb-1.5">Type Ontruiming *</label>
-                <select id="type" name="type" required class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
+                <label for="type" class="block text-sm font-medium text-gray-700 mb-1.5">Type Ontruiming <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+                <select id="type" name="type" required aria-required="true" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
                   <option value="">Selecteer type</option>
                   <option value="woningontruiming">Woningontruiming</option>
                   <option value="overlijden">Ontruiming na overlijden</option>
@@ -360,7 +371,7 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
               <button type="submit" id="locatie-submit-btn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base px-6 py-3.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
                 Plan Gratis Bezichtiging
               </button>
-              <div id="locatie-form-message" class="hidden text-center text-sm font-medium py-3 rounded-lg"></div>
+              <div id="locatie-form-message" class="hidden text-center text-sm font-medium py-3 rounded-lg" role="alert" aria-live="polite" aria-atomic="true"></div>
             </form>
           </div>
         </div>
@@ -376,10 +387,10 @@ const andereLocaties = locaties.filter(l => l.slug !== loc.slug);
             <p class="text-gray-400 text-sm mt-1">Wij bedienen heel Gent en omstreken.</p>
           </div>
           <div class="hidden md:flex items-center gap-2">
-            <button id="loc-prev" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Vorige">
+            <button id="loc-prev" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Vorige locaties">
               <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-            <button id="loc-next" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Volgende">
+            <button id="loc-next" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" aria-label="Volgende locaties">
               <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
           </div>

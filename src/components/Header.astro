@@ -60,14 +60,32 @@
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    const firstLink = menu?.querySelector('a') as HTMLElement | null;
+    firstLink?.focus();
+  }
+
   toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(!menu?.classList.contains('hidden')));
+    const isOpen = !menu?.classList.contains('hidden');
+    if (isOpen) { closeMenu(); } else { openMenu(); }
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu?.classList.contains('hidden')) {
+      closeMenu();
+      toggle?.focus();
+    }
+  });
+
   menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => closeMenu());
   });
 </script>

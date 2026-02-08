@@ -47,13 +47,16 @@
               src="/images/hero-ontruiming.jpg"
               alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
               class="w-full h-auto object-cover"
+              width="1200"
+              height="971"
               loading="eager"
+              fetchpriority="high"
             />
           </div>
           <!-- Floating trust badge op afbeelding -->
           <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3.5 border border-gray-100 shadow-lg flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg aria-hidden="true" class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
             <div>
               <p class="text-sm font-bold text-gray-900">100% bezemschoon</p>
@@ -68,7 +71,9 @@
             src="/images/hero-ontruiming.jpg"
             alt="De Graslei in Gent - werkgebied van Huisleegmakers woningontruiming"
             class="w-full h-auto"
-            loading="eager"
+            width="1200"
+            height="971"
+            loading="lazy"
           />
         </div>
       </div>
@@ -78,7 +83,7 @@
         <div class="bg-white rounded-xl p-3 sm:p-4 border border-gray-100 shadow-sm">
           <div class="flex items-center gap-1 mb-1">
             {[1,2,3,4,5].map(() => (
-              <svg class="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg aria-hidden="true" class="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
             ))}
           </div>
           <p class="text-gray-900 font-bold text-base sm:text-lg font-display">4.9/5</p>

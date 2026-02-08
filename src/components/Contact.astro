@@ -56,12 +56,12 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label for="naam" class="block text-sm font-medium text-gray-700 mb-1.5">Naam *</label>
-              <input type="text" id="naam" name="naam" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw naam" />
+              <label for="naam" class="block text-sm font-medium text-gray-700 mb-1.5">Naam <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+              <input type="text" id="naam" name="naam" required aria-required="true" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw naam" />
             </div>
             <div>
-              <label for="telefoon" class="block text-sm font-medium text-gray-700 mb-1.5">Telefoon *</label>
-              <input type="tel" id="telefoon" name="telefoon" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw telefoonnummer" />
+              <label for="telefoon" class="block text-sm font-medium text-gray-700 mb-1.5">Telefoon <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+              <input type="tel" id="telefoon" name="telefoon" required aria-required="true" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw telefoonnummer" />
             </div>
           </div>
 
@@ -71,14 +71,14 @@
               <input type="email" id="email" name="email" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Uw e-mailadres" />
             </div>
             <div>
-              <label for="locatie" class="block text-sm font-medium text-gray-700 mb-1.5">Locatie *</label>
-              <input type="text" id="locatie" name="locatie" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Stad of gemeente" />
+              <label for="locatie" class="block text-sm font-medium text-gray-700 mb-1.5">Locatie <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+              <input type="text" id="locatie" name="locatie" required aria-required="true" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Stad of gemeente" />
             </div>
           </div>
 
           <div>
-            <label for="type" class="block text-sm font-medium text-gray-700 mb-1.5">Type Ontruiming *</label>
-            <select id="type" name="type" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
+            <label for="type" class="block text-sm font-medium text-gray-700 mb-1.5">Type Ontruiming <span aria-hidden="true">*</span><span class="sr-only">(verplicht)</span></label>
+            <select id="type" name="type" required aria-required="true" class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
               <option value="">Selecteer type</option>
               <option value="woningontruiming">Woningontruiming</option>
               <option value="overlijden">Ontruiming na overlijden</option>
@@ -101,7 +101,7 @@
           <button type="submit" id="submit-btn" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base px-6 py-3.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
             Plan Gratis Bezichtiging
           </button>
-          <div id="form-message" class="hidden text-center text-sm font-medium py-3 rounded-lg"></div>
+          <div id="form-message" class="hidden text-center text-sm font-medium py-3 rounded-lg" role="alert" aria-live="polite" aria-atomic="true"></div>
         </form>
       </div>
     </div>

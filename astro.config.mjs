@@ -5,7 +5,7 @@ import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://huisleegmakers.gent',
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
   integrations: [
     tailwind({ configFile: './tailwind.config.cjs' }),
