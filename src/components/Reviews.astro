@@ -1,0 +1,48 @@
+---
+const reviews = [
+  { naam: 'Marie V.', locatie: 'Merelbeke', score: 5, tekst: 'Mama was net overleden en ik wist niet waar te beginnen. Zij hebben alles geregeld. Heel respectvol, niks weggegooid zonder te vragen. Aanrader.' },
+  { naam: 'Tom J.', locatie: 'Gent', score: 5, tekst: 'Huurder vertrokken, boel achtergelaten. Binnen 2 dagen was alles weg en bezemschoon. Prijs was exact wat ze gezegd hadden, niks extra.' },
+  { naam: 'Sofie D.', locatie: 'Wondelgem', score: 5, tekst: 'Moesten kleiner gaan wonen. Heel veel spullen. Team was er om 8u, om 16u was alles klaar. Heel vlot en vriendelijk. Top service.' },
+];
+const avatarColors = ['bg-brand-100 text-brand-700', 'bg-green-100 text-green-700', 'bg-amber-100 text-amber-700'];
+---
+
+<section id="reviews" class="py-16 md:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 sm:mb-14">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">Reviews</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">Wat onze klanten zeggen</h2>
+      <div class="flex items-center justify-center gap-1.5 mt-2">
+        {[1,2,3,4,5].map(() => (
+          <svg class="w-4 sm:w-5 h-4 sm:h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+        ))}
+        <span class="ml-2 text-sm font-bold text-gray-900">4.9/5</span>
+        <span class="text-gray-400 text-sm">uit 127+ reviews</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+      {reviews.map((r, i) => (
+        <article class="bg-gray-50 rounded-xl p-5 sm:p-6 border border-gray-100">
+          <div class="flex items-center gap-1 mb-3 sm:mb-4">
+            {Array.from({length: r.score}).map(() => (
+              <svg class="w-3.5 sm:w-4 h-3.5 sm:h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            ))}
+          </div>
+          <blockquote class="text-gray-600 text-sm sm:text-[15px] leading-relaxed mb-4 sm:mb-5">
+            "{r.tekst}"
+          </blockquote>
+          <footer class="flex items-center gap-3">
+            <div class={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${avatarColors[i]} flex items-center justify-center font-bold text-xs sm:text-sm`}>
+              {r.naam.charAt(0)}
+            </div>
+            <div>
+              <cite class="not-italic font-semibold text-gray-900 text-sm block">{r.naam}</cite>
+              <span class="text-gray-400 text-xs">{r.locatie}</span>
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

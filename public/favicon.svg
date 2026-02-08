@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- Dak -->
+  <path d="M110 255 L256 120 L402 255" stroke="white" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Linkermuur + vloer -->
+  <path d="M152 255 L152 395 L330 395" stroke="white" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Rechtermuur (kort - huis is open) -->
+  <line x1="360" y1="255" x2="360" y2="308" stroke="white" stroke-width="34" stroke-linecap="round"/>
+  <!-- Pijl naar buiten (ontruiming) -->
+  <line x1="245" y1="338" x2="385" y2="338" stroke="#fbbf24" stroke-width="30" stroke-linecap="round"/>
+  <path d="M352 305 L388 338 L352 371" stroke="#fbbf24" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

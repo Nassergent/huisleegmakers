@@ -1,0 +1,33 @@
+---
+const faqs = [
+  { vraag: 'Hoe snel kunnen jullie een ontruiming uitvoeren?', antwoord: 'Bij spoedgevallen kunnen wij binnen 24 uur starten. Voor reguliere ontruimingen plannen wij doorgaans binnen 1 tot 2 weken in, afhankelijk van de omvang.' },
+  { vraag: 'Wat kost een woningontruiming?', antwoord: 'De kosten zijn afhankelijk van de grootte van de woning en de hoeveelheid te ontruimen goederen. Wij komen altijd eerst gratis langs voor een bezichtiging en bezorgen u binnen 24 uur een vrijblijvende offerte.' },
+  { vraag: 'Werken jullie ook in het weekend?', antwoord: 'Voor spoedgevallen zijn wij 24/7 bereikbaar, ook in het weekend. Bel ons gerust op 0478 22 56 33.' },
+  { vraag: 'Zijn jullie verzekerd?', antwoord: 'Ja, wij zijn volledig verzekerd. U hoeft zich geen zorgen te maken over eventuele schade tijdens de ontruiming.' },
+];
+---
+
+<section id="faq" class="py-20 md:py-24 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">FAQ</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display">Veelgestelde vragen</h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-gray-900 hover:text-brand-600 transition-colors list-none text-[15px]">
+            <span class="pr-4">{faq.vraag}</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:text-brand-600 transition-transform duration-200 group-open:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-gray-500 leading-relaxed text-[15px]">
+            {faq.antwoord}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+const diensten = [
+  {
+    titel: 'Particulieren',
+    beschrijving: 'Woningen, appartementen en ontruiming na overlijden. Met respect en aandacht voor uw persoonlijke situatie.',
+    iconBg: 'bg-brand-50', iconColor: 'text-brand-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>'
+  },
+  {
+    titel: 'Bedrijven',
+    beschrijving: 'Kantoorruimtes, overtollige voorraad en magazijnen. Snelle uitvoering voor bedrijfscontinuïteit.',
+    iconBg: 'bg-green-50', iconColor: 'text-green-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>'
+  },
+  {
+    titel: 'Organisaties',
+    beschrijving: "VZW's, verenigingen en instellingen. Flexibele planning afgestemd op uw noden.",
+    iconBg: 'bg-orange-50', iconColor: 'text-orange-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>'
+  },
+  {
+    titel: 'Sociale Instellingen',
+    beschrijving: 'Rusthuizen, zorgcentra en dienstencentra. Discrete en respectvolle service.',
+    iconBg: 'bg-rose-50', iconColor: 'text-rose-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>'
+  },
+  {
+    titel: 'Overheidsinstellingen',
+    beschrijving: 'OCMW, sociale diensten en overheidspartners. Correcte administratie en rapportage.',
+    iconBg: 'bg-violet-50', iconColor: 'text-violet-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>'
+  },
+  {
+    titel: 'Vrije Beroepen',
+    beschrijving: 'Advocaten, notarissen, curatoren en makelaars. Professionele en betrouwbare samenwerking.',
+    iconBg: 'bg-amber-50', iconColor: 'text-amber-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l3 9a5.002 5.002 0 01-6.001 0M18 7l-3 9m-3-9l6-2m0 0V4"></path></svg>'
+  },
+];
+---
+
+<section id="diensten" class="py-20 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">Onze diensten</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">Voor wie werken wij?</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Professionele ontruiming voor particulieren, bedrijven en organisaties. Altijd bezemschoon opgeleverd.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {diensten.map((d) => (
+        <article class={`bg-white rounded-xl p-5 sm:p-6 border shadow-sm hover:shadow-md transition-all duration-200 group border-l-4 ${d.iconColor.replace('text-', 'border-')}`}>
+          <div class={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${d.iconBg} ${d.iconColor} mb-3 sm:mb-4`} set:html={d.icon} />
+          <h3 class="text-lg font-bold text-gray-900 mb-2 font-display">{d.titel}</h3>
+          <p class="text-gray-500 text-[15px] leading-relaxed mb-4">{d.beschrijving}</p>
+          <span class="inline-flex items-center gap-1.5 text-sm font-medium text-green-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Bezemschoon opgeleverd
+          </span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

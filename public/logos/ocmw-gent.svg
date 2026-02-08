@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" fill="none">
+  <!-- Grote lichtgroene cirkel met inkeping rechts -->
+  <mask id="cutout">
+    <rect width="200" height="180" fill="white"/>
+    <circle cx="155" cy="110" r="32" fill="black"/>
+  </mask>
+  <circle cx="85" cy="90" r="80" fill="#b8d98a" mask="url(#cutout)"/>
+  <!-- Kleine donkergroene cirkel -->
+  <circle cx="155" cy="110" r="22" fill="#2ea839"/>
+</svg>

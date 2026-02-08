@@ -1,0 +1,56 @@
+---
+const stappen = [
+  { nr: '1', titel: 'Contact & Afspraak', beschrijving: 'Bel, mail of vul het formulier in. Binnen 24 uur plannen wij een gratis bezichtiging.', color: 'bg-brand-600', border: 'border-brand-200' },
+  { nr: '2', titel: 'Gratis Bezichtiging', beschrijving: 'Wij komen gratis langs om alles te bekijken en uw wensen te bespreken.', color: 'bg-green-600', border: 'border-green-200' },
+  { nr: '3', titel: 'Vrijblijvende Offerte', beschrijving: 'Binnen 24 uur ontvangt u een heldere offerte. Geen verborgen kosten, beloofd.', color: 'bg-amber-500', border: 'border-amber-200' },
+  { nr: '4', titel: 'Bezemschoon Opgeleverd', beschrijving: 'Ons team voert alles uit en levert bezemschoon op. U hoeft niks te doen.', color: 'bg-brand-600', border: 'border-brand-200' },
+];
+---
+
+<section id="werkwijze" class="py-16 md:py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10 sm:mb-14">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">Werkwijze</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">In 4 eenvoudige stappen</h2>
+      <p class="text-gray-500 max-w-xl mx-auto text-sm sm:text-base">Van eerste contact tot bezemschone oplevering. Transparant en zonder verrassingen.</p>
+    </div>
+
+    <!-- Desktop: horizontaal -->
+    <div class="hidden md:grid md:grid-cols-4 gap-5">
+      {stappen.map((stap, i) => (
+        <div class="relative bg-white rounded-xl p-6 border border-gray-100 shadow-sm text-center">
+          {i < 3 && (
+            <div class="hidden lg:block absolute top-1/2 -right-3 z-10 -translate-y-1/2">
+              <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+          )}
+          <div class={`inline-flex items-center justify-center w-12 h-12 ${stap.color} text-white text-lg font-bold rounded-xl mb-4`}>
+            {stap.nr}
+          </div>
+          <h3 class="text-base font-bold text-gray-900 mb-2 font-display">{stap.titel}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{stap.beschrijving}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobiel: verticale timeline -->
+    <div class="md:hidden space-y-0">
+      {stappen.map((stap, i) => (
+        <div class="flex gap-4">
+          <!-- Timeline lijn + cirkel -->
+          <div class="flex flex-col items-center">
+            <div class={`w-10 h-10 ${stap.color} text-white text-sm font-bold rounded-full flex items-center justify-center flex-shrink-0 z-10`}>
+              {stap.nr}
+            </div>
+            {i < 3 && <div class="w-0.5 flex-1 bg-gray-200 my-1"></div>}
+          </div>
+          <!-- Content -->
+          <div class={`flex-1 pb-6 ${i === stappen.length - 1 ? '' : ''}`}>
+            <h3 class="text-base font-bold text-gray-900 mb-1 font-display">{stap.titel}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{stap.beschrijving}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

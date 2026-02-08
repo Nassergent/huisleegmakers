@@ -1,0 +1,125 @@
+---
+// Foto gallerij / carousel - Sanity CMS ready
+// Placeholder kaarten tonen "voor/na" stijl tot echte foto's beschikbaar zijn
+const fotos = [
+  { src: '/images/gallerij/ontruiming-1.jpg', alt: 'Keuken voor woningontruiming Gent - vuile kookplaat en pannen die ontruimd moeten worden' },
+  { src: '/images/gallerij/ontruiming-2.jpg', alt: 'Vervuilde keuken met wasmachine voor professionele ontruiming in Gent' },
+  { src: '/images/gallerij/ontruiming-3.jpg', alt: 'Vuilniszakken en afval klaar voor afvoer bij woningontruiming Gent' },
+  { src: '/images/gallerij/ontruiming-4.jpg', alt: 'Vervuilde woonkamer met haard voor complete woningontruiming door Huisleegmakers' },
+  { src: '/images/gallerij/ontruiming-5.jpg', alt: 'Rommelige kamer met dozen en kleding klaar voor ontruiming in Gent' },
+];
+---
+
+<section id="gallerij" class="py-16 md:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">Ons werk</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-4">Bekijk onze realisaties</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Van eerste contact tot bezemschone oplevering. Bekijk enkele voorbeelden van ons werk.</p>
+    </div>
+
+    <!-- Carousel -->
+    <div class="relative">
+      <!-- Prev button -->
+      <button id="gallery-prev" class="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-all" aria-label="Vorige foto">
+        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+
+      <!-- Track -->
+      <div id="gallery-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 no-scrollbar">
+        {fotos.map((foto, i) => (
+          <div class="gallery-card flex-shrink-0 w-[260px] sm:w-[300px] md:w-[340px] snap-start" data-index={i}>
+            <div class="aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 border border-gray-100 shadow-sm relative group">
+              <img
+                src={foto.src}
+                alt={foto.alt}
+                class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Next button -->
+      <button id="gallery-next" class="hidden md:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-all" aria-label="Volgende foto">
+        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="flex items-center justify-center gap-1.5 mt-5">
+      {fotos.map((_, i) => (
+        <button class="gallery-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-200" data-index={i} aria-label={`Ga naar foto ${i + 1}`}></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('gallery-track') as HTMLElement | null;
+    const prev = document.getElementById('gallery-prev') as HTMLButtonElement | null;
+    const next = document.getElementById('gallery-next') as HTMLButtonElement | null;
+    const dots = document.querySelectorAll('.gallery-dot') as NodeListOf<HTMLButtonElement>;
+    const cards = document.querySelectorAll('.gallery-card') as NodeListOf<HTMLElement>;
+
+    if (!track || cards.length === 0) return;
+
+    function getCardWidth(): number {
+      const card = cards[0];
+      if (!card) return 300;
+      return card.offsetWidth + 16; // card width + gap (gap-4 = 16px)
+    }
+
+    function getCurrentIndex(): number {
+      if (!track) return 0;
+      const cardW = getCardWidth();
+      return Math.round(track.scrollLeft / cardW);
+    }
+
+    function updateDots() {
+      const index = getCurrentIndex();
+      dots.forEach((d, i) => {
+        const isActive = i === index;
+        d.classList.toggle('bg-brand-600', isActive);
+        d.classList.toggle('w-5', isActive);
+        d.classList.toggle('bg-gray-300', !isActive);
+        d.classList.toggle('w-2', !isActive);
+      });
+    }
+
+    function scrollToIndex(index: number) {
+      if (!track) return;
+      const cardW = getCardWidth();
+      track.scrollTo({ left: index * cardW, behavior: 'smooth' });
+    }
+
+    prev?.addEventListener('click', () => {
+      const current = getCurrentIndex();
+      if (current > 0) scrollToIndex(current - 1);
+    });
+
+    next?.addEventListener('click', () => {
+      const current = getCurrentIndex();
+      if (current < cards.length - 1) scrollToIndex(current + 1);
+    });
+
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        const idx = parseInt(d.getAttribute('data-index') || '0');
+        scrollToIndex(idx);
+      });
+    });
+
+    track.addEventListener('scroll', updateDots);
+
+    // Init
+    updateDots();
+  });
+</script>
