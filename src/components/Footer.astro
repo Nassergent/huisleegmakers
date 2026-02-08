@@ -1,11 +1,10 @@
 ---
 // Footer
-import { locaties } from '../data/locaties';
 ---
 
 <footer class="bg-gray-900 pt-16 pb-8">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 mb-12">
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-12">
       <div class="col-span-2 md:col-span-3 lg:col-span-1">
         <a href="/" class="flex items-center gap-2.5 group" aria-label="Huisleegmakers">
           <svg class="w-10 h-10 flex-shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,15 +36,6 @@ import { locaties } from '../data/locaties';
           <li><a href="/#diensten" class="hover:text-white transition-colors">Ontruiming na overlijden</a></li>
           <li><a href="/#diensten" class="hover:text-white transition-colors">Bedrijfsontruiming</a></li>
           <li><a href="/#diensten" class="hover:text-white transition-colors">Spoedservice</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">Regio's</h3>
-        <ul class="space-y-2.5 text-sm text-gray-400 columns-2 gap-x-6">
-          {locaties.map((loc) => (
-            <li><a href={`/woningontruiming-${loc.slug}`} class="hover:text-white transition-colors">{loc.naam}</a></li>
-          ))}
         </ul>
       </div>
 
